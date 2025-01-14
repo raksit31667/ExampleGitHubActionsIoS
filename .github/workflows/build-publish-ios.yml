@@ -1,0 +1,21 @@
+name: iOS CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-ios:
+    name: Build iOS
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Xcode
+        run: xcode-select --switch /Applications/Xcode.app/Contents/Developer
+
+
+      - name: Build iOS App
+        run: xcodebuild -workspace examplegithubactionsios.xcworkspace -scheme examplegithubactionsios -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/examplegithubactionsios.xcarchive
