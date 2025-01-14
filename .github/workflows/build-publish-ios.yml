@@ -18,4 +18,4 @@ jobs:
 
 
       - name: Build iOS App
-        run: xcodebuild -project examplegithubactionsios.xcodeproj -scheme examplegithubactionsios | xcpretty
+        run: xcodebuild -project examplegithubactionsios.xcodeproj -scheme examplegithubactionsios
